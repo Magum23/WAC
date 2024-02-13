@@ -1,6 +1,7 @@
 import { Config } from '@stencil/core';
 
 export const config: Config = {
+  globalScript: 'src/global/app.ts',
   namespace: 'ambulance-ufe',
   outputTargets: [
     {
@@ -19,6 +20,6 @@ export const config: Config = {
     },
   ],
   testing: {
-    browserHeadless: "new",
+    browserHeadless: 'new',
   },
 };
