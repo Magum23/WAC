@@ -19,7 +19,7 @@ export class MagumAmbulanceWlList {
         condition: 'Kontrola',
       },
       {
-        name: 'Bc. August Cézar',
+        name: 'Bc. August Brutus',
         patientId: '10096',
         since: new Date(Date.now() - 30 * 60).toISOString(),
         estimatedStart: new Date(Date.now() + 30 * 60).toISOString(),
