@@ -6,24 +6,84 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface MagumAmbulanceWlApp {
+        "basePath": string;
+    }
+    interface MagumAmbulanceWlEditor {
+        "entryId": string;
+    }
     interface MagumAmbulanceWlList {
     }
 }
+export interface MagumAmbulanceWlEditorCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLMagumAmbulanceWlEditorElement;
+}
+export interface MagumAmbulanceWlListCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLMagumAmbulanceWlListElement;
+}
 declare global {
+    interface HTMLMagumAmbulanceWlAppElement extends Components.MagumAmbulanceWlApp, HTMLStencilElement {
+    }
+    var HTMLMagumAmbulanceWlAppElement: {
+        prototype: HTMLMagumAmbulanceWlAppElement;
+        new (): HTMLMagumAmbulanceWlAppElement;
+    };
+    interface HTMLMagumAmbulanceWlEditorElementEventMap {
+        "editor-closed": string;
+    }
+    interface HTMLMagumAmbulanceWlEditorElement extends Components.MagumAmbulanceWlEditor, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLMagumAmbulanceWlEditorElementEventMap>(type: K, listener: (this: HTMLMagumAmbulanceWlEditorElement, ev: MagumAmbulanceWlEditorCustomEvent<HTMLMagumAmbulanceWlEditorElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLMagumAmbulanceWlEditorElementEventMap>(type: K, listener: (this: HTMLMagumAmbulanceWlEditorElement, ev: MagumAmbulanceWlEditorCustomEvent<HTMLMagumAmbulanceWlEditorElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLMagumAmbulanceWlEditorElement: {
+        prototype: HTMLMagumAmbulanceWlEditorElement;
+        new (): HTMLMagumAmbulanceWlEditorElement;
+    };
+    interface HTMLMagumAmbulanceWlListElementEventMap {
+        "entry-clicked": string;
+    }
     interface HTMLMagumAmbulanceWlListElement extends Components.MagumAmbulanceWlList, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLMagumAmbulanceWlListElementEventMap>(type: K, listener: (this: HTMLMagumAmbulanceWlListElement, ev: MagumAmbulanceWlListCustomEvent<HTMLMagumAmbulanceWlListElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLMagumAmbulanceWlListElementEventMap>(type: K, listener: (this: HTMLMagumAmbulanceWlListElement, ev: MagumAmbulanceWlListCustomEvent<HTMLMagumAmbulanceWlListElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLMagumAmbulanceWlListElement: {
         prototype: HTMLMagumAmbulanceWlListElement;
         new (): HTMLMagumAmbulanceWlListElement;
     };
     interface HTMLElementTagNameMap {
+        "magum-ambulance-wl-app": HTMLMagumAmbulanceWlAppElement;
+        "magum-ambulance-wl-editor": HTMLMagumAmbulanceWlEditorElement;
         "magum-ambulance-wl-list": HTMLMagumAmbulanceWlListElement;
     }
 }
 declare namespace LocalJSX {
+    interface MagumAmbulanceWlApp {
+        "basePath"?: string;
+    }
+    interface MagumAmbulanceWlEditor {
+        "entryId"?: string;
+        "onEditor-closed"?: (event: MagumAmbulanceWlEditorCustomEvent<string>) => void;
+    }
     interface MagumAmbulanceWlList {
+        "onEntry-clicked"?: (event: MagumAmbulanceWlListCustomEvent<string>) => void;
     }
     interface IntrinsicElements {
+        "magum-ambulance-wl-app": MagumAmbulanceWlApp;
+        "magum-ambulance-wl-editor": MagumAmbulanceWlEditor;
         "magum-ambulance-wl-list": MagumAmbulanceWlList;
     }
 }
@@ -31,6 +91,8 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "magum-ambulance-wl-app": LocalJSX.MagumAmbulanceWlApp & JSXBase.HTMLAttributes<HTMLMagumAmbulanceWlAppElement>;
+            "magum-ambulance-wl-editor": LocalJSX.MagumAmbulanceWlEditor & JSXBase.HTMLAttributes<HTMLMagumAmbulanceWlEditorElement>;
             "magum-ambulance-wl-list": LocalJSX.MagumAmbulanceWlList & JSXBase.HTMLAttributes<HTMLMagumAmbulanceWlListElement>;
         }
     }
