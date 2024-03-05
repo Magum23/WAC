@@ -1,5 +1,5 @@
 import { Component, Event, EventEmitter, Host, Prop, State, h } from '@stencil/core';
-import { AmbulanceWaitingListApiFactory, WaitingListEntry } from '../../api/ambulance-wl';
+import { AmbulanceWaitingListApiFactory } from '../../api/ambulance-wl';
 
 @Component({
   tag: 'magum-ambulance-wl-list',
