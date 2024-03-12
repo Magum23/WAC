@@ -56,7 +56,12 @@ export class MagumAmbulanceWlApp {
     return (
       <Host>
         {element === 'editor' ? (
-          <magum-ambulance-wl-editor entry-id={entryId} oneditor-closed={() => navigate('./list')}></magum-ambulance-wl-editor>
+          <magum-ambulance-wl-editor
+            entry-id={entryId}
+            ambulance-id={this.ambulanceId}
+            api-base={this.apiBase}
+            oneditor-closed={() => navigate('./list')}
+          ></magum-ambulance-wl-editor>
         ) : (
           <magum-ambulance-wl-list
             ambulance-id={this.ambulanceId}

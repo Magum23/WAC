@@ -12,6 +12,8 @@ export namespace Components {
         "basePath": string;
     }
     interface MagumAmbulanceWlEditor {
+        "ambulanceId": string;
+        "apiBase": string;
         "entryId": string;
     }
     interface MagumAmbulanceWlList {
@@ -81,6 +83,8 @@ declare namespace LocalJSX {
         "basePath"?: string;
     }
     interface MagumAmbulanceWlEditor {
+        "ambulanceId"?: string;
+        "apiBase"?: string;
         "entryId"?: string;
         "onEditor-closed"?: (event: MagumAmbulanceWlEditorCustomEvent<string>) => void;
     }
