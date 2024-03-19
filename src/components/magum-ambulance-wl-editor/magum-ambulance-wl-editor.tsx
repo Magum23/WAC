@@ -30,9 +30,28 @@ export class MagumAmbulanceWlEditor {
         waitingSince: new Date().toISOString(),
         estimatedDurationMinutes: 15,
       };
+
       this.entry.estimatedStart = (await this.assumedEntryDateAsync()).toISOString();
+
       return this.entry;
     }
+    if (!this.entryId) {
+      this.isValid = false;
+      return undefined;
+    }
+    try {
+      const response = await AmbulanceWaitingListApiFactory(undefined, this.apiBase).getWaitingListEntry(this.ambulanceId, this.entryId);
+
+      if (response.status < 299) {
+        this.entry = response.data;
+        this.isValid = true;
+      } else {
+        this.errorMessage = `Cannot retrieve list of waiting patients: ${response.statusText}`;
+      }
+    } catch (err: any) {
+      this.errorMessage = `Cannot retrieve list of waiting patients: ${err.message || 'unknown'}`;
+    }
+    return undefined;
   }
 
   private async assumedEntryDateAsync(): Promise<Date> {
