@@ -117,7 +117,7 @@ export class MagumAmbulanceWlEditor {
             <md-icon slot="leading-icon">fingerprint</md-icon>
           </md-filled-text-field>
 
-          <md-filled-text-field label="Čakáte od" disabled value={new Date(this.entry?.waitingSince || Date.now()).toLocaleTimeString()}>
+          <md-filled-text-field disabled label="Čakáte od" value={new Date(this.entry?.waitingSince || Date.now()).toLocaleTimeString()}>
             <md-icon slot="leading-icon">watch_later</md-icon>
           </md-filled-text-field>
           <md-filled-text-field disabled label="Predpokladaný čas vyšetrenia" value={new Date(this.entry?.estimatedStart || Date.now()).toLocaleTimeString()}>

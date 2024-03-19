@@ -40,6 +40,7 @@ export class MagumAmbulanceWlApp {
   }
 
   render() {
+    console.debug('magum-ambulance-wl-app.render() - path: %s', this.relativePath);
     let element = 'list';
     let entryId = '@new';
 
